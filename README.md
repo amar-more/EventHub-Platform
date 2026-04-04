@@ -1,17 +1,24 @@
 # EventHub-Platform
 
-🎉 EventHub
-EventHub is a web-based platform designed to simplify the way students explore and manage college events.
-It enables organizers to create and manage events while allowing students to easily register, track, and participate.
+# 🎉 EventHub-Platform
 
-🚀 Features
-🔍 Browse and search upcoming college events
-📝 Register for events online
-📅 Event calendar for quick overview
-👤 Separate interfaces for students and organizers
-💻 Admin panel to add, edit, and delete events
+EventHub is a web-based platform designed to simplify the way students explore and manage college events.  
+It enables organizers to create and manage events while allowing students to easily register, track, and participate.  
 
-🛠️ Tech Stack
-Frontend: HTML, CSS, JavaScript
-Backend: PHP
-Database: MySQL
+---
+
+## 🚀 Features
+- 🔍 Browse and search upcoming college events  
+- 📝 Register for events online  
+- 📅 Event calendar for quick overview  
+- 👤 Separate interfaces for students and organizers  
+- 💻 Admin panel to add, edit, and delete events  
+
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** HTML, CSS  
+- **Backend:** PHP  
+- **Database:** MySQL  
+
+---
