@@ -12,6 +12,6 @@ It enables organizers to create and manage events while allowing students to eas
 💻 Admin panel to add, edit, and delete events
 
 🛠️ Tech Stack
-Frontend: HTML, CSS
+Frontend: HTML, CSS, JavaScript
 Backend: PHP
 Database: MySQL
