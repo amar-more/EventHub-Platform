@@ -10,6 +10,7 @@ It enables organizers to create and manage events while allowing students to eas
 📅 Event calendar for quick overview
 👤 Separate interfaces for students and organizers
 💻 Admin panel to add, edit, and delete events
+
 🛠️ Tech Stack
 Frontend: HTML, CSS
 Backend: PHP
