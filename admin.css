@@ -1,0 +1,581 @@
+/* Variables - Keep as they are common */
+:root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+    --primary: #171717;
+    --primary-foreground: #fafafa;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #171717;
+    --muted: #f5f5f5;
+    --muted-foreground: #737373;
+    --accent: #f5f5f5;
+    --accent-foreground: #171717;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #171717;
+    --radius: 0.5rem;
+
+    --purple-50: #f5f3ff;
+    --purple-100: #ede9fe;
+    --purple-200: #ddd6fe;
+    --purple-300: #c4b5fd;
+    --purple-400: #a78bfa;
+    --purple-500: #8b5cf6;
+    --purple-600: #7c3aed;
+    --purple-700: #6d28d9;
+    --purple-800: #5b21b6;
+    --purple-900: #4c1d95;
+    --mission:#e0e0e0;
+
+    --pink-50: #fdf2f8;
+    --pink-100: #fce7f3;
+    --pink-200: #fbcfe8;
+    --pink-300: #f9a8d4;
+    --pink-400: #f472b6;
+    --pink-500: #ec4899;
+    --pink-600: #db2777;
+    --pink-700: #be185d;
+    --pink-800: #9d174d;
+    --pink-900: #831843;
+
+    /* Default (Light) Theme Profile Variables - Adjusted for lighter shades */
+    --profile-background: #f8faff; /* Very light blueish-white */
+    --profile-foreground: #1a1a2e; /* Darker text for contrast */
+    --profile-card-bg: #ffffff; /* White card background */
+    --profile-border: #e0e0f0; /* Lighter, subtle border */
+    --profile-text-muted: #606070; /* Slightly darker muted text */
+    --profile-accent-color: var(--purple-600); /* Use purple-600 for accent */
+    --profile-accent-gradient: linear-gradient(45deg, var(--purple-500), var(--pink-500)); /* Purple-pink gradient */
+    --profile-tab-border: #e0e0f0; /* Light tab border */
+    --profile-tab-active-border: var(--profile-accent-color); /* Active tab border (purple) */
+    --profile-button-gradient: linear-gradient(45deg, var(--purple-600), var(--pink-600)); /* Button gradient */
+    --profile-button-hover-bg: var(--purple-700); /* Darker purple on hover */
+    --profile-button-text: #ffffff; /* White button text */
+    --profile-button-outline-border: var(--profile-border); /* Use profile border variable */
+    --profile-button-outline-hover-bg: rgba(124, 58, 237, 0.08); /* Subtle hover for outline (using purple-600) */
+    --profile-empty-icon: var(--profile-text-muted); /* Use profile text muted variable */
+    --profile-empty-text: var(--profile-text-muted); /* Use profile text muted variable */
+    --profile-destructive-bg: var(--pink-500); /* Use pink-500 for destructive in light theme */
+    --profile-destructive-foreground: #ffffff; /* White text for destructive */
+}
+
+/* Dark Theme Profile Variables */
+.dark,
+.eventhub-dark { /* Apply dark theme variables when body has .dark or .eventhub-dark */
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #0a0a0a;
+    --card-foreground: #fafafa;
+    --primary: #fafafa;
+    --primary-foreground: #171717;
+    --secondary: #262626;
+    --secondary-foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafafa;
+    --border: #262626;
+    --input: #262626;
+    --ring: #d4d4d4;
+    --mission:linear-gradient(180deg, #2e1a4a 10%, #1a0f3a 50%, #0a0815 50%);
+
+    --profile-background: #0a0a0a; /* Deep dark background */
+    --profile-foreground: #fafafa; /* White text */
+    --profile-card-bg: #1c1c2e; /* Darker background for header/cards */
+    --profile-border: #33334f; /* Darker border */
+    --profile-text-muted: #b0b0d0; /* Lighter text for details */
+    --profile-accent-color: #8a2be2; /* Purple accent */
+    --profile-accent-gradient: linear-gradient(45deg, var(--purple-700), var(--purple-900)); /* Darker purple gradient */
+    --profile-tab-border: #3a3a5a; /* Tab border color */
+    --profile-tab-active-border: var(--profile-accent-color); /* Active tab border (purple) */
+    --profile-button-gradient: linear-gradient(45deg, var(--purple-600), var(--pink-600)); /* Button gradient */
+    --profile-button-hover-bg: var(--purple-800); /* Button hover color */
+    --profile-button-text: #ffffff; /* White button text */
+    --profile-button-outline-border: var(--profile-accent-purple); /* Outline button border */
+    --profile-button-outline-hover-bg: rgba(138, 43, 226, 0.1); /* Outline button hover background */
+    --profile-empty-icon: #b0b0d0; /* Empty state icon color */
+    --profile-empty-text: #b0b0d0; /* Empty state text color */
+    --profile-destructive-bg: var(--destructive); /* Red for destructive */
+    --profile-destructive-foreground: var(--destructive-foreground); /* White for destructive text */
+}
+
+/* Reset and base styles - Keep as they are fundamental */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--profile-background); /* Use profile specific background variable */
+    color: var(--profile-foreground); /* Use profile specific foreground variable */
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dashboard Container - Main content wrapper */
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+/* Profile Header Section */
+.dashboard-profile-header { /* Renamed */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--mission); /* Use profile card background variable */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted shadow for light/dark */
+    gap: 20px;
+    border: 1px solid var(--profile-border); /* Use profile border variable */
+}
+
+.dashboard-profile-header-content { /* Renamed */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.dashboard-profile-avatar-info { /* Renamed */
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 15px;
+}
+
+.dashboard-avatar-large { /* Renamed */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--profile-accent-gradient); /* Use profile accent gradient variable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--profile-button-text); /* Use profile button text variable */
+    flex-shrink: 0;
+}
+
+.dashboard-profile-name { /* Renamed */
+    margin: 0;
+    font-size: 28px;
+    color: var(--profile-foreground); /* Use profile foreground variable */
+    word-break: break-word;
+}
+
+.dashboard-profile-department { /* Renamed */
+    margin: 5px 0 0;
+    font-size: 18px;
+    color: var(--profile-text-muted); /* Use profile text muted variable */
+    word-break: break-word;
+}
+
+.dashboard-edit-profile-btn { /* Renamed */
+    background: var(--profile-button-gradient); /* Use profile button gradient variable */
+    color: var(--profile-button-text); /* Use profile button text variable */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.dashboard-edit-profile-btn:hover { /* Renamed */
+    opacity: 0.9;
+}
+
+/* Stats Grid */
+.dashboard-stats-grid { /* Renamed */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for stats */
+    gap: 20px;
+}
+
+.dashboard-stats-card { /* Renamed */
+    background-color: var(--profile-card-bg); /* Use profile card background variable */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted shadow for light/dark */
+    text-align: center;
+    border: 1px solid var(--profile-border); /* Use profile border variable */
+}
+
+.stats-label {
+    margin-top: 0;
+    font-size: 16px;
+    color: var(--profile-text-muted); /* Use profile text muted variable */
+    margin-bottom: 10px;
+}
+
+.dashboard-stats-value { /* Renamed */
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--profile-foreground); /* Use profile foreground variable */
+}
+
+/* Tabs Container */
+.dashboard-tabs-container { /* Renamed */
+    margin-bottom: 30px;
+}
+
+.dashboard-tabs-header { /* Renamed */
+    display: flex;
+    border-bottom: 2px solid var(--profile-tab-border); /* Use profile tab border variable */
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dashboard-tab-button { /* Renamed */
+    background-color: transparent;
+    border: none;
+    color: var(--profile-text-muted); /* Use profile text muted variable */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    position: relative;
+    bottom: -2px;
+}
+
+.dashboard-tab-button:hover { /* Renamed */
+    color: var(--profile-foreground); /* Use profile foreground variable */
+}
+
+.dashboard-tab-button.active { /* Renamed */
+    color: var(--profile-foreground); /* Use profile foreground variable */
+    border-bottom: 2px solid var(--profile-tab-active-border); /* Use profile tab active border variable */
+    font-weight: bold;
+}
+
+.dashboard-tab-content { /* Renamed */
+    display: none;
+}
+
+.dashboard-tab-content.active { /* Renamed */
+    display: block;
+}
+
+/* Events Grid within Tab Content */
+.dashboard-events-grid { /* Renamed */
+    display: grid;
+    /* Use auto-fill instead of auto-fit to prevent single item stretching */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    /* Center the grid if it doesn't fill the container */
+    justify-content: center;
+}
+
+/* Styling for individual Event Cards */
+.dashboard-event-card { /* Renamed */
+    background-color: var(--profile-card-bg); /* Use profile card background variable */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--profile-border); /* Use profile border variable */
+    /* Ensure cards don't grow beyond their minmax size when auto-fill is used */
+    width: 100%; /* Take full width of the grid track */
+    max-width: 100%; /* Prevent stretching beyond track */
+}
+
+.dashboard-event-card:hover { /* Renamed */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-event-image { /* Renamed */
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.dashboard-event-image img { /* Renamed */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.dashboard-event-image-placeholder { /* Renamed */
+    width: 100%;
+    height: 100%;
+    background-color: var(--profile-border); /* Use profile border variable for placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: var(--profile-empty-icon); /* Use profile empty icon variable */
+}
+
+.dashboard-event-badge { /* Renamed */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(138, 43, 226, 0.9); /* Keep consistent purple badge */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.dashboard-event-header { /* Renamed */
+    padding: 15px 15px 0 15px;
+}
+
+.dashboard-event-title { /* Renamed */
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: var(--profile-foreground); /* Use profile foreground variable */
+    word-break: break-word;
+}
+
+.dashboard-event-content { /* Renamed */
+    padding: 10px 15px 15px 15px;
+    flex-grow: 1;
+}
+
+.dashboard-event-detail { /* Renamed */
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--profile-text-muted); /* Use profile text muted variable */
+}
+
+.dashboard-event-detail:last-child { /* Renamed */
+    margin-bottom: 0;
+}
+
+.dashboard-event-icon { /* Renamed */
+    margin-right: 8px;
+    color: var(--profile-accent-color); /* Use profile accent color variable */
+    font-size: 16px;
+}
+
+.dashboard-event-footer { /* Renamed */
+    padding: 15px;
+    border-top: 1px solid var(--profile-border); /* Use profile border variable */
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Event Footer Buttons */
+.dashboard-event-footer button, /* Renamed */
+.dashboard-event-footer a { /* Renamed */
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-event-footer button:hover, /* Renamed */
+.dashboard-event-footer a:hover { /* Renamed */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.dashboard-btn-edit { /* Renamed */
+    background: linear-gradient(45deg, var(--purple-600), var(--pink-600));
+    color: var(--profile-button-text);
+    border: none;
+}
+
+.dashboard-btn-edit:hover { /* Renamed */
+    opacity: 0.9;
+}
+
+.dashboard-btn-delete { /* Renamed */
+    background-color: rgb(233, 122, 239); /* Use profile destructive background variable */
+    color: var(--profile-destructive-foreground); /* Use profile destructive foreground variable */
+    border: none;
+}
+
+.dashboard-btn-delete:hover { /* Renamed */
+    /* In light mode, swap colors on hover */
+    background-color: var(--profile-destructive-foreground);
+    color: var(--profile-destructive-bg);
+}
+
+/* Dark mode specific hover for delete button */
+.dark .dashboard-btn-delete:hover,
+.eventhub-dark .dashboard-btn-delete:hover {
+     background-color: var(--destructive-foreground); /* Use dark theme destructive foreground */
+     color: var(--destructive); /* Use dark theme destructive */
+}
+
+
+.dashboard-btn-view { /* Renamed */
+     background: linear-gradient(45deg, var(--purple-600), var(--pink-600));
+    color: var(--profile-button-text);
+    border: none;
+}
+
+.dashboard-btn-view:hover { /* Renamed */
+     opacity: 0.9;
+}
+
+
+.dashboard-btn-cancel { /* Renamed */
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    border: none;
+}
+
+.dashboard-btn-cancel:hover { /* Renamed */
+    background-color: var(--muted);
+}
+
+
+/* Empty State Styling */
+.dashboard-empty-state { /* Renamed */
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--profile-card-bg); /* Use profile card background variable */
+    border-radius: 10px;
+    border: 1px solid var(--profile-border); /* Use profile border variable */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    grid-column: 1 / -1;
+}
+
+.dashboard-empty-icon { /* Renamed */
+    font-size: 60px;
+    color: var(--profile-empty-icon); /* Use profile empty icon variable */
+    margin-bottom: 20px;
+}
+
+.dashboard-empty-title { /* Renamed */
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--profile-foreground); /* Use profile foreground variable */
+    margin-bottom: 10px;
+}
+
+.dashboard-empty-description { /* Renamed */
+    font-size: 16px;
+    color: var(--profile-empty-text); /* Use profile empty text variable */
+    margin-bottom: 20px;
+}
+
+.dashboard-empty-actions { /* Renamed */
+    margin-top: 20px;
+}
+
+.dashboard-btn-create,.dashboard-load-more-btn { /* Renamed */
+    background: var(--profile-button-gradient); /* Use profile button gradient variable */
+    color: var(--profile-button-text); /* Use profile button text variable */
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.dashboard-btn-create:hover ,.dashboard-load-more-btn:hover { /* Renamed */
+    opacity: 0.9;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .dashboard-profile-header-content { /* Renamed */
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-profile-avatar-info { /* Renamed */
+        margin-bottom: 15px;
+    }
+
+    .dashboard-edit-profile-btn { /* Renamed */
+        align-self: flex-end;
+    }
+
+    .dashboard-tabs-header { /* Renamed */
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .dashboard-tab-button { /* Renamed */
+        flex-basis: calc(50% - 5px);
+        text-align: center;
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+
+    .dashboard-stats-grid { /* Renamed */
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-event-footer { /* Renamed */
+        justify-content: center;
+    }
+}
+/* styles.css or profile.css */
+
+/* Style for the Load More Button */
+.dashboard-load-more-btn {
+    display: block; /* Make the button a block element so margin: auto works */
+    margin: 20px auto; /* Center the button and add space above/below */
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff; /* White text */
+    background-color: #007bff; /* Primary blue color - adjust as needed */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    text-align: center;
+}
+
+
+.dashboard-load-more-btn:disabled {
+    background-color: #cccccc; /* Grey out when disabled */
+    cursor: not-allowed;
+}
+
+/* Optional: Style when the button shows an error */
+.dashboard-load-more-btn.error {
+    background-color: #dc3545; /* Red for error - you would need to add this class in JS */
+}

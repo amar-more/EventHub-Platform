@@ -1,0 +1,368 @@
+/* Variables - Keep as they are common */
+:root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+    --primary: #171717;
+    --primary-foreground: #fafafa;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #171717;
+    --muted: #f5f5f5;
+    --muted-foreground: #737373;
+    --accent: #f5f5f5;
+    --accent-foreground: #171717;
+    --destructive: #ef4444; /* Added from file 1, assuming it's intended */
+    --destructive-foreground: #fafafa; /* Added from file 1, assuming it's intended */
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #171717;
+    --radius: 0.5rem;
+  
+  
+    --purple-50: #f5f3ff;
+    --purple-100: #ede9fe;
+    --purple-200: #ddd6fe;
+    --purple-300: #c4b5fd;
+    --purple-400: #a78bfa;
+    --purple-500: #8b5cf6;
+    --purple-600: #7c3aed;
+    --purple-700: #6d28d9;
+    --purple-800: #5b21b6;
+    --purple-900: #4c1d95;
+    --mission:#e0e0e0; /* Added from file 3 */
+  
+    --pink-50: #fdf2f8;
+    --pink-100: #fce7f3;
+    --pink-200: #fbcfe8;
+    --pink-300: #f9a8d4;
+    --pink-400: #f472b6;
+    --pink-500: #ec4899;
+    --pink-600: #db2777;
+    --pink-700: #be185d;
+    --pink-800: #9d174d;
+    --pink-900: #831843;
+  }
+  
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #0a0a0a;
+    --card-foreground: #fafafa;
+    --primary: #fafafa;
+    --primary-foreground: #171717;
+    --secondary: #262626;
+    --secondary-foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+    --destructive: #7f1d1d; /* Added from file 1, assuming it's intended */
+    --destructive-foreground: #fafafa; /* Added from file 1, assuming it's intended */
+    --border: #262626;
+    --input: #262626;
+    --ring: #d4d4d4;
+    --mission:linear-gradient(180deg, #2e1a4a 0%, #1a0f3a 60%, #0a0815 100%); /* Added from file 3 */
+  }
+  
+  /* Reset and base styles - Keep as they are fundamental */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Added font-family from file 2, assuming it's the desired base font */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.5;
+    min-height: 100vh;
+    transition: all 0.3s;
+  }
+  
+  /* Container - Keep as it defines overall width, used in multiple files */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Toggle theme button - Keep as is, absolute positioning is less likely to conflict */
+ 
+  
+  
+  /* --- Start of Renamed Classes for Main Content --- */
+  
+  /* Section styles - Keep as they are general section padding */
+  section {
+    padding: 2rem 0;
+  }
+  
+  /* Header Section (Renamed) */
+  .main-header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .main-header-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .main-header-grid {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .main-header-content, .main-header-image {
+      flex: 1;
+    }
+    .main-header-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  .main-header-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .main-header-description {
+    color: var(--muted-foreground);
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+  }
+  
+  .main-header-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Mission Section (Renamed) */
+  .main-mission-section {
+    background: var(--mission);
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .main-mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .main-mission-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .main-mission-description {
+    font-size: 1.25rem;
+    color: var(--muted-foreground);
+  }
+  
+  /* How it Works Section (Renamed) */
+  .main-how-it-works-section {
+    padding: 4rem 1rem;
+  }
+  
+  .main-section-title { /* Renamed generic section title */
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .main-cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .main-cards-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .main-card { /* Renamed card */
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+  
+  .main-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-card-icon { /* Renamed card icon */
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: linear-gradient(to right, var(--purple-500), var(--pink-500));
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .main-card-icon i {
+    color: var(--foreground);
+    font-size: 1.5rem;
+  }
+  
+  .main-card-title { /* Renamed card title */
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .main-card-description { /* Renamed card description */
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+  }
+  
+  /* Why Choose Section (Renamed) */
+  .main-why-choose-section {
+    background: var(--accent);
+    padding: 4rem 1rem;
+  }
+  
+  .main-features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 640px) {
+    .main-features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .main-features-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .main-feature { /* Renamed feature */
+    text-align: center;
+  }
+  
+  .main-feature-icon { /* Renamed feature icon */
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: linear-gradient(to right, var(--purple-500), var(--pink-500));
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  
+  .main-feature-title { /* Renamed feature title */
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .main-feature-description { /* Renamed feature description */
+    color: var(--muted-foreground);
+  }
+  
+  /* CTA Section (Renamed) */
+  .main-cta-section {
+    text-align: center;
+    background: linear-gradient(to right, var(--purple-600), var(--pink-500));
+    border-radius: 1rem;
+    color: white;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 4rem 1rem;
+  }
+  
+  .main-cta-title { /* Renamed CTA title */
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .main-cta-button { /* Renamed CTA button */
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: var(--purple-600);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .main-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Button styles (Renamed) */
+  .main-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .main-btn-primary {
+    background: linear-gradient(to right, var(--purple-600), var(--pink-500));
+    color: white;
+  }
+  
+  .main-btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  .main-btn-outline {
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    background: transparent;
+  }
+  
+  .main-btn-outline:hover {
+    background: var(--accent);
+  }
+  
+  /* Gradient text (Renamed) */
+  .main-gradient-text {
+    background: linear-gradient(to right, var(--purple-600), var(--pink-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline;
+  }
+  
+  /* --- End of Renamed Classes for Main Content --- */
+  
+  /* Footer - Removed duplicate footer styles */

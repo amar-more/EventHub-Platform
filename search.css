@@ -1,0 +1,1026 @@
+/* --- Variables --- */
+/* These variables are typically global and can be defined in a single place,
+   like a main style.css or included at the top of specific component files.
+   Including them here for completeness, but consider defining them once
+   in a central location if possible. */
+   :root {
+    /* Base Colors */
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+    --primary: #171717; /* Often used for strong accents, buttons, text on light background */
+    --primary-foreground: #fafafa; /* Text color on primary background */
+    --secondary: #f5f5f5; /* Often used for subtle backgrounds, borders */
+    --secondary-foreground: #171717; /* Text color on secondary background */
+    --muted: #f5f5f5; /* Even more subtle backgrounds, borders */
+    --muted-foreground: #737373; /* Less prominent text, placeholders */
+    --accent: #f5f5f5; /* Used for hover/active states on secondary/muted */
+    --accent-foreground: #171717; /* Text color on accent background */
+    --destructive: #ef4444; /* Red for errors/danger */
+    --destructive-foreground: #fafafa; /* Text color on destructive background */
+    --border: #e5e5e5; /* Default border color */
+    --input: #e5e5e5; /* Default input border/background */
+    --ring: #171717; /* Used for focus rings */
+    --radius: 0.5rem; /* Default border radius */
+
+    /* Custom Gradient/Brand Colors */
+    --purple-50: #f5f3ff;
+    --purple-100: #ede9fe;
+    --purple-200: #ddd6fe;
+    --purple-300: #c4b5fd;
+    --purple-400: #a78bfa;
+    --purple-500: #8b5cf6;
+    --purple-600: #7c3aed; /* Used in gradients */
+    --purple-700: #6d28d9;
+    --purple-800: #5b21b6;
+    --purple-900: #4c1d95;
+
+    --pink-50: #fdf2f8;
+    --pink-100: #fce7f3;
+    --pink-200: #fbcfe8;
+    --pink-300: #fbcfe8;
+    --pink-400: #f472b6;
+    --pink-500: #ec4899; /* Used in gradients */
+    --pink-600: #db2777;
+    --pink-700: #be185d;
+    --pink-800: #9d174d;
+    --pink-900: #831843;
+
+    --mission: #e0e0e0; /* Specific color */
+
+    /* Hint for browser date picker color */
+    --theme-scheme: light;
+}
+
+.dark {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #0a0a0a;
+    --card-foreground: #fafafa;
+    --primary: #fafafa; /* Often inverted in dark mode */
+    --primary-foreground: #171717;
+    --secondary: #262626;
+    --secondary-foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafafa;
+    --border: #262626;
+    --input: #262626;
+    --ring: #d4d4d4;
+
+    /* Dark mode specific gradient */
+    --mission: linear-gradient(180deg, #2e1a4a 0%, #1a0f3a 60%, #0a0815 100%);
+    /* Hint for browser date picker color */
+    --theme-scheme: dark;
+}
+
+
+/* --- Reset and Base Styles --- */
+/* These are typically global and can be defined in a single place,
+   like a main style.css or included at the top of specific component files.
+   Including them here for completeness, but if you have a global reset, you might remove these. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    /* Use variables for theme-based background and text color */
+    background-color: var(--background);
+    color: var(--foreground);
+    flex-direction:column;
+    line-height: 1.5;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
+}
+
+.search-page-container { /* Renamed */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Accessibility */
+.search-page-sr-only { /* Renamed */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+
+/* --- Main Content - Search Page Specific Styles --- */
+
+/* Hero section */
+.search-page-hero-section { /* Renamed */
+    position: relative;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+.search-page-hero-section::before { /* Renamed */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(167, 139, 250, 0.1), rgba(236, 72, 153, 0.1)); /* Using purple-400 and pink-500 hex */
+    z-index: -10;
+    border-radius: 1.5rem;
+}
+
+.search-page-hero-content { /* Renamed */
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.search-page-hero-title { /* Renamed */
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: var(--foreground); /* Title color */
+}
+
+.search-page-gradient-text { /* Renamed */
+    /* Use the hex colors for the gradient text */
+    background: linear-gradient(to right, var(--purple-500), var(--pink-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.search-page-hero-description { /* Renamed */
+    max-width: 700px;
+    font-size: 1.125rem;
+    color: var(--muted-foreground); /* Use muted foreground */
+    margin: 0 auto 1.5rem;
+}
+
+/* Main Search container */
+/* These classes are specific to the main search area on this page */
+.search-page-search-container { /* Renamed */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-page-search-input-container { /* Renamed */
+    display: flex;
+    position: relative;
+    margin-bottom: 0; /* Remove bottom margin here, add to container below */
+    align-items: center; /* Ensure vertical alignment */
+    gap: 0; /* Remove gap between input and button */
+    border: 1px solid var(--border); /* Add border to the container */
+    border-radius: var(--radius); /* Apply border radius to the container */
+    overflow: hidden; /* Hide overflowing corners of children */
+    background-color: var(--input); /* Apply input background to container */
+    height: 2.5rem; /* Set a consistent height for the combined unit */
+}
+
+.search-page-search-icon { /* Renamed */
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted-foreground); /* Icon color */
+    pointer-events: none; /* Ensure icon doesn't interfere with input clicks */
+    z-index: 1; /* Ensure icon is above input */
+    font-size: 1rem; /* Reduced icon size */
+}
+
+.search-page-search-input { /* Renamed */
+    flex: 1;
+    min-width: 0; /* Allow input to shrink */
+    padding: 0.75rem 1rem 0.75rem 2.5rem; /* Adjust left padding for icon */
+    border: none; /* Remove border from input */
+    border-radius: 0; /* Remove border radius from input */
+    background-color: transparent; /* Make input background transparent */
+    color: var(--foreground); /* Use foreground for text */
+    font-size: 1rem; /* Reduced text size */
+    outline: none;
+    transition: box-shadow 0.2s; /* Transition only box-shadow */
+    height: 100%; /* Make input fill container height */
+    padding-right: 0.5rem; /* Adjust padding as needed */
+}
+
+.search-page-search-input:focus { /* Renamed */
+    outline: none;
+    /* Apply focus ring to the container instead */
+}
+
+/* Apply focus styles to the container when input is focused */
+.search-page-search-input-container:focus-within { /* Renamed */
+    border-color: var(--ring); /* Use ring variable for focus border */
+    box-shadow: 0 0 0 2px rgba(23, 23, 23, 0.2); /* Default for light theme (--ring is #171717) */
+}
+
+/* Dark mode override for search input focus ring */
+.dark .search-page-search-input-container:focus-within { /* Renamed */
+    box-shadow: 0 0 0 2px rgba(212, 212, 212, 0.2); /* Dark mode (--ring is #d4d4d4) */
+}
+
+
+.search-page-search-button { /* Renamed */
+    padding: 0.75rem 1.5rem;
+    /* Use the hex colors for the gradient */
+    background: linear-gradient(to right, var(--purple-600), var(--pink-500));
+    color: var(--primary-foreground); /* Use primary foreground for button text */
+    border: none; /* Remove border from button */
+    border-radius: 0; /* Remove border radius from button */
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    height: 100%; /* Make button fill container height */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.search-page-search-button:hover { /* Renamed */
+    /* Darker gradient on hover */
+    background: linear-gradient(to right, var(--purple-700), var(--pink-600));
+}
+
+.search-page-advanced-filters-container { /* Renamed */
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem; /* Add space below the main search bar unit */
+}
+
+.search-page-advanced-filters-btn { /* Renamed */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid var(--border); /* Use border variable */
+    color: var(--foreground); /* Use foreground color */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+}
+
+.search-page-advanced-filters-btn:hover { /* Renamed */
+    border-color: var(--ring); /* Use ring variable on hover */
+    color: var(--ring); /* Optional: change text color on hover */
+}
+
+/* Advanced Filters Panel */
+/* Keeping these class names as they are less likely to conflict,
+   but you can rename them with a prefix too if needed. */
+.advanced-filters-panel {
+    position: fixed; /* Keep fixed so it overlays content */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    /* Use card background */
+    background-color: var(--card);
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Keep original shadow or use a variable */
+    z-index: 50;
+    padding: 1.5rem;
+    border: 1px solid var(--border); /* Add border */
+    color: var(--foreground); /* Default text color */
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border); /* Use border variable */
+}
+
+.close-filters-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted-foreground); /* Use muted foreground */
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.close-filters-btn:hover {
+    color: var(--foreground); /* Use foreground on hover */
+}
+
+.filters-content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.filter-group h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: var(--foreground); /* Heading color */
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive columns */
+    gap: 0.5rem;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--foreground); /* Text color */
+}
+
+.date-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.date-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.date-input-group label {
+    font-size: 0.75rem;
+    color: var(--muted-foreground); /* Use muted foreground */
+}
+
+.date-input-group input[type="date"] {
+    padding: 0.5rem;
+    border-radius: var(--radius); /* Use radius variable */
+    border: 1px solid var(--border); /* Use border variable */
+    background-color: var(--input); /* Use input background variable */
+    color: var(--foreground); /* Use foreground text color */
+    /* Hint browser for date picker color */
+    color-scheme: var(--theme-scheme, light);
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: var(--radius); /* Use radius variable */
+    border: 1px solid var(--border); /* Use border variable */
+    background-color: var(--input); /* Use input background variable */
+    color: var(--foreground); /* Use foreground text color */
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+
+/* Search Results Container */
+.search-page-search-results-container { /* Renamed */
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Reverted to 2fr 1fr split */
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .search-page-search-results-container { /* Renamed */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Section titles */
+.search-page-section-title { /* Renamed */
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 1.5rem;
+    color: var(--foreground); /* Section title color */
+}
+
+.search-page-section-title::after { /* Renamed */
+    content: "";
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    width: 33%;
+    height: 0.25rem;
+    /* Use the hex colors for the underline gradient */
+    background: linear-gradient(to right, var(--purple-600), var(--pink-500));
+    border-radius: 9999px;
+}
+
+/* Empty search state */
+.search-page-empty-search-state { /* Renamed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  /* Use card background with opacity, adapting from the original rgba(17, 24, 39, 0.5) */
+  background-color: rgba(var(--card-rgb, 255, 255, 255), 0.5); /* Assumes you might define --card-rgb */
+  /* Fallback if --card-rgb not defined: */
+  background-color: rgba(255, 255, 255, 0.5); /* Light default */
+   .dark & {
+      background-color: rgba(10, 10, 10, 0.5); /* Dark default */
+   }
+
+  border-radius: 0.75rem;
+  border: 1px solid var(--border); /* Use border variable */
+}
+
+/* Dark mode override for empty search state background */
+.dark .search-page-empty-search-state { /* Renamed */
+    background-color: rgba(10, 10, 10, 0.5);
+}
+
+
+.search-page-empty-search-icon { /* Renamed */
+  color: var(--muted-foreground); /* Icon color */
+  margin-bottom: 1rem;
+}
+
+.search-page-empty-search-state h3 { /* Renamed */
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--foreground); /* Heading color */
+}
+
+.search-page-empty-search-state p { /* Renamed */
+    color: var(--muted-foreground); /* Text color */
+}
+
+/* Trending Events */
+.search-page-trending-events { /* Renamed */
+    /* No specific styles needed here unless you want margin/padding */
+}
+
+.search-page-trending-events-list { /* Renamed */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.search-page-trending-event-card { /* Renamed */
+    display: flex;
+    justify-content: space-between;
+    /* Default background for light mode */
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px); /* Added blur for frosted effect */
+    border: 1px solid var(--border); /* Use border variable */
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: all 0.3s;
+    color: var(--foreground); /* Default text color */
+}
+
+/* Dark mode override for trending event card background */
+.dark .search-page-trending-event-card { /* Renamed */
+    background-color: rgba(10, 10, 10, 0.5);
+}
+
+
+.search-page-trending-event-card:hover { /* Renamed */
+    border-color: var(--ring); /* Use ring variable on hover */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Keep original shadow or use a variable */
+    transform: translateY(-2px); /* Added slight lift */
+}
+
+.search-page-trending-event-details { /* Renamed */
+    flex: 1;
+}
+
+.search-page-trending-event-title { /* Renamed */
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--foreground); /* Title color */
+}
+
+.search-page-trending-event-category { /* Renamed */
+    font-size: 0.875rem;
+    color: var(--purple-400); /* Use the hex variable */
+    margin-bottom: 0.5rem;
+}
+
+.search-page-trending-event-info { /* Renamed */
+    font-size: 0.875rem;
+    color: var(--muted-foreground); /* Use muted foreground */
+    margin-bottom: 0.75rem;
+}
+
+.search-page-trending-event-info p { /* Renamed */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+.search-page-trending-event-info i { /* Renamed */
+    color: var(--primary); /* Icon color */
+}
+
+
+.search-page-trending-event-stats { /* Renamed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent shrinking */
+    margin-left: 1rem; /* Space from details */
+}
+
+/* You had percentage classes, keep them or remove if not used */
+.search-page-trending-percentage { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; } /* Renamed */
+.search-page-trending-percentage.positive { color: #10b981; } /* Static green - Renamed */
+.search-page-trending-percentage.negative { color: #ef4444; } /* Static red - Renamed */
+
+
+/* Advanced Filters Panel */
+/* Keeping these class names as they are less likely to conflict,
+   but you can rename them with a prefix too if needed. */
+.advanced-filters-panel {
+    position: fixed; /* Keep fixed so it overlays content */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    /* Use card background */
+    background-color: var(--card);
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Keep original shadow or use a variable */
+    z-index: 50;
+    padding: 1.5rem;
+    border: 1px solid var(--border); /* Add border */
+    color: var(--foreground); /* Default text color */
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border); /* Use border variable */
+}
+
+.close-filters-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted-foreground); /* Use muted foreground */
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.close-filters-btn:hover {
+    color: var(--foreground); /* Use foreground on hover */
+}
+
+.filters-content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.filter-group h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: var(--foreground); /* Heading color */
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive columns */
+    gap: 0.5rem;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--foreground); /* Text color */
+}
+
+.date-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.date-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.date-input-group label {
+    font-size: 0.75rem;
+    color: var(--muted-foreground); /* Use muted foreground */
+}
+
+.date-input-group input[type="date"] {
+    padding: 0.5rem;
+    border-radius: var(--radius); /* Use radius variable */
+    border: 1px solid var(--border); /* Use border variable */
+    background-color: var(--input); /* Use input background variable */
+    color: var(--foreground); /* Use foreground text color */
+    /* Hint browser for date picker color */
+    color-scheme: var(--theme-scheme, light);
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: var(--radius); /* Use radius variable */
+    border: 1px solid var(--border); /* Use border variable */
+    background-color: var(--input); /* Use input background variable */
+    color: var(--foreground); /* Use foreground text color */
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+
+/* --- Button styles --- */
+/* Reusing/adapting from your provided main-btn styles */
+/* These are general button styles used within the main content sections */
+/* Keeping these class names as they are general purpose,
+   but you can rename them with a prefix too if needed. */
+.primary-btn, .outline-btn, .register-button, .cta-primary-btn, .cta-outline-btn, .main-btn {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     padding: 0.75rem 1.5rem; /* Increased padding slightly */
+     font-size: 0.875rem;
+     font-weight: 500;
+     border-radius: var(--radius);
+     cursor: pointer;
+     transition: all 0.3s ease; /* Smooth transition */
+     text-decoration: none; /* Ensure links look like buttons */
+     border: 1px solid transparent; /* Base border */
+}
+
+.primary-btn:hover, .main-btn-primary:hover {
+     /* Darker gradient on hover */
+    background: linear-gradient(to right, var(--purple-700), var(--pink-600));
+    opacity: 1; /* Ensure opacity is 1 */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15); /* Slightly larger shadow */
+}
+
+.outline-btn, .main-btn-outline {
+    background: transparent;
+    border-color: var(--border); /* Use border variable */
+    color: var(--foreground); /* Use foreground color */
+}
+
+.outline-btn:hover, .main-btn-outline:hover {
+    background-color: var(--accent); /* Use accent color for hover background */
+    border-color: var(--ring); /* Use ring variable for hover border */
+}
+
+/* Specific button styles */
+.register-button { /* Styles for the 'Register / Learn More' button */
+    /* Example: Could be like primary button */
+    background: linear-gradient(to right, var(--purple-600), var(--pink-500));
+    color: var(--primary-foreground);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    /* Added display/alignment from combined button styles */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.register-button:hover {
+    background: linear-gradient(to right, var(--purple-700), var(--pink-600));
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15);
+}
+
+
+/* --- CTA section (Adapting from your main-cta-section) --- */
+.search-page-cta-section { /* Renamed */
+    text-align: center;
+    /* Use the hex colors for the gradient */
+    background: linear-gradient(to right, var(--purple-600), var(--pink-500));
+    border-radius: 1rem;
+    color: white; /* Keep white text on this dark gradient */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 4rem 1rem;
+    position: relative; /* Added for pseudo-element if needed */
+    overflow: hidden; /* Ensure pseudo-element stays inside */
+}
+/* If you need a specific dark mode background for CTA like in your previous CSS */
+.dark .search-page-cta-section { /* Renamed */
+    background: linear-gradient(to bottom right, var(--purple-900), var(--pink-800)); /* Using darker hex */
+}
+
+.search-page-cta-content { /* Renamed */
+    max-width: 34rem;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+.search-page-cta-title { /* Renamed */
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: inherit; /* Inherit color from parent (.cta-section) */
+}
+
+.search-page-cta-description { /* Renamed */
+    color: rgba(255, 255, 255, 0.8); /* Keep slight transparency */
+    margin-bottom: 1.5rem;
+}
+
+.search-page-cta-buttons { /* Renamed */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .search-page-cta-buttons { /* Renamed */
+        flex-direction: row;
+    }
+}
+
+/* CTA specific buttons (Adapting from your cta-primary-btn/cta-outline-btn) */
+/* Keeping these class names as they are specific to CTA within this file */
+.cta-primary-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    /* Use white background */
+    background: white;
+    color: var(--purple-600); /* Use a brand color for text */
+    font-weight: bold;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.cta-primary-btn:hover {
+    background-color: #f9fafb; /* Slightly lighter white on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.cta-outline-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: transparent;
+    /* White text on transparent/gradient background */
+    border: 1px solid white; /* White border */
+    font-weight: bold;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.cta-outline-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* White with opacity on hover */
+    border-color: rgba(255, 255, 255, 0.5); /* Lighter border on hover */
+}
+
+
+/* --- Events grid (Search Results) --- */
+/* Renamed above: .search-page-events-grid */
+
+/* Event Card styles (Adapting from previous search results) */
+.search-page-event-card { /* Renamed */
+    background: var(--card); /* Use card background */
+    border: 1px solid var(--border); /* Use border variable */
+    border-radius: 0.75rem;
+    overflow: hidden; /* Hide overflowing corners of children */
+    display: flex; /* Use flex for layout */
+    flex-direction: column; /* Stack image and details by default */
+    transition: all 0.3s; /* Added transition */
+    color: var(--foreground); /* Default text color */
+}
+
+.search-page-event-card:hover { /* Renamed */
+    border-color: var(--ring); /* Use ring variable on hover */
+    box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transform: translateY(-3px); /* Added slight lift */
+}
+
+.search-page-event-image, .search-page-event-image-placeholder { /* Renamed */
+    width: 100%; /* Full width by default */
+    height: 180px; /* Fixed height, adjust as needed */
+    object-fit: cover; /* Crop image to fit */
+    flex-shrink: 0; /* Don't shrink image */
+    background-color: var(--secondary); /* Placeholder background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--muted-foreground);
+}
+
+.search-page-event-details { /* Renamed */
+    padding: 1rem; /* Padding inside card */
+    flex-grow: 1; /* Allow details to fill space */
+    display: flex;
+    flex-direction: column;
+}
+
+.search-page-event-title { /* Renamed */
+    font-size: 1.125rem; /* Default size */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--foreground); /* Title color */
+}
+
+.search-page-event-category { /* Renamed */
+    font-size: 0.875rem; /* Default size */
+    color: var(--muted-foreground); /* Use muted foreground */
+    margin-bottom: 0.5rem;
+}
+
+.search-page-event-info { /* Renamed */
+    font-size: 0.875rem; /* Default size */
+    color: var(--muted-foreground); /* Use muted foreground */
+    margin-bottom: 0.75rem;
+}
+
+.search-page-event-info p { /* Renamed */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+.search-page-event-info i { /* Renamed */
+    color: var(--primary); /* Icon color */
+}
+
+.search-page-event-description { /* Renamed */
+    font-size: 0.875rem; /* Default size */
+    color: var(--foreground); /* Description text color */
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Allow description to take available space */
+}
+
+.register-button { /* Styles for the 'Register / Learn More' button */
+    margin-top: auto; /* Push button to the bottom */
+}
+
+/* --- Responsive Adjustments (Keep/Adapt) --- */
+@media (max-width: 768px) {
+    .search-page-hero-title { /* Renamed */
+        font-size: 2rem;
+    }
+
+    .search-page-hero-description { /* Renamed */
+        font-size: 1rem;
+    }
+
+    /* Main search input stack on small screens */
+    .search-page-search-input-container { /* Renamed */
+        flex-direction: column;
+        border-radius: var(--radius); /* Apply radius on smaller screens */
+        margin-bottom: 0.5rem; /* Add space below stacked input container */
+        height: auto; /* Allow height to adjust when stacked */
+    }
+
+    .search-page-search-input { /* Renamed */
+        border-radius: var(--radius); /* Apply radius on smaller screens */
+        margin-bottom: 0; /* Remove bottom margin when stacked */
+        padding: 0.75rem 1rem 0.75rem 2.5rem; /* Ensure consistent padding */
+         width: 100%; /* Make input full width when stacked */
+         height: 2.5rem; /* Explicitly set height when stacked */
+         font-size: 1rem; /* Ensure font size is consistent when stacked */
+    }
+    .search-page-search-icon { /* Renamed */
+        top: calc(0.75rem + (0.75rem / 2) - 0.5em); /* Padding top + half height - half icon size */
+        font-size: 1rem; /* Ensure icon size is consistent when stacked */
+    }
+
+
+    .search-page-search-button { /* Renamed */
+        border-radius: var(--radius); /* Apply radius on smaller screens */
+        width: 100%; /* Make button full width */
+        padding: 0.75rem 1.5rem; /* Ensure consistent padding */
+        height: 2.5rem; /* Explicitly set height when stacked */
+    }
+
+    .search-page-search-results-container { /* Renamed */
+        grid-template-columns: 1fr; /* Stack main content and trending */
+    }
+
+    .search-page-cta-buttons { /* Renamed */
+        flex-direction: column; /* Stack CTA buttons */
+    }
+
+     .search-page-checkbox-group { /* Renamed */
+         grid-template-columns: 1fr; /* Stack checkboxes on very small screens */
+     }
+     .search-page-date-inputs { /* Renamed */
+         grid-template-columns: 1fr; /* Stack date inputs */
+     }
+
+     /* Adjust horizontal event card layout for smaller screens */
+     .search-page-event-card-horizontal {
+         flex-direction: column; /* Stack image and details vertically */
+         align-items: stretch; /* Stretch items to fill width */
+     }
+
+     .search-page-event-image-horizontal, .search-page-event-image-horizontal-placeholder {
+         width: 100%; /* Make image full width when stacked */
+         height: 180px; /* Revert to default image height */
+         border-radius: 0.75rem 0.75rem 0 0; /* Adjust border radius for top */
+     }
+
+     .search-page-event-details-horizontal {
+         padding: 1rem; /* Add padding back when stacked */
+     }
+}
+
+/* Add more specific media queries or adjustments as needed */
+
+/* Styles for the horizontal search result cards */
+.search-page-event-card-horizontal {
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-direction: row; /* Arrange children horizontally */
+    align-items: center; /* Vertically align items */
+    gap: 1rem; /* Space between image and details */
+    background: var(--card); /* Use card background */
+    border: 1px solid var(--border); /* Use border variable */
+    border-radius: 0.75rem;
+    overflow: hidden; /* Hide overflowing corners */
+    transition: all 0.3s; /* Added transition */
+    color: var(--foreground); /* Default text color */
+    padding: 1rem; /* Add padding around the content */
+}
+
+.search-page-event-card-horizontal:hover {
+    border-color: var(--ring); /* Use ring variable on hover */
+    box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transform: translateY(-3px); /* Added slight lift */
+}
+
+.search-page-event-image-horizontal, .search-page-event-image-horizontal-placeholder {
+    width: 60%; /* Set width to 60% */
+    height: 220px; /* Increased height */
+    object-fit: cover; /* Crop image to fit */
+    flex-shrink: 0; /* Prevent shrinking */
+    border-radius: 0.5rem; /* Rounded corners for the image */
+    background-color: var(--secondary); /* Placeholder background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--muted-foreground);
+}
+
+.search-page-event-details-horizontal {
+    flex-grow: 1; /* Allow details to take available space (will be 40% due to image width) */
+    display: flex;
+    flex-direction: column;
+    /* Remove padding here as it's on the container */
+    padding: 0;
+}
+
+/* Reduced font sizes for text within horizontal event cards */
+.search-page-event-card-horizontal .search-page-event-title {
+    font-size: 1rem; /* Reduced title size */
+}
+
+.search-page-event-card-horizontal .search-page-event-category {
+    font-size: 0.8rem; /* Reduced category size */
+}
+
+.search-page-event-card-horizontal .search-page-event-info {
+    font-size: 0.8rem; /* Reduced info size */
+}
+
+.search-page-event-card-horizontal .search-page-event-description {
+    font-size: 0.8rem; /* Reduced description size */
+}

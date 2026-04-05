@@ -1,0 +1,90 @@
+/* --- Edit Profile Page Styles --- */
+.main-content {
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.edit-profile-section {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.profile-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.profile-form input,
+.profile-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--input);
+    color: var(--foreground);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.profile-form input:focus,
+.profile-form textarea:focus {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 2px rgba(var(--ring-rgb, 0, 0, 0), 0.2); /* Assuming you might add --ring-rgb */
+}
+
+.profile-form textarea {
+    min-height: 100px;
+}
+
+.form-text {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+
+
+/* Specific styling for success and error messages */
+.success-message {
+    color: #10b981; /* Tailwind green-500 equivalent */
+    background-color: #f0fdf4; /* Tailwind green-50 equivalent */
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    border: 1px solid #bef264; /* Tailwind green-300 equivalent */
+}
+
+.dark .success-message {
+    background-color: rgba(16, 185, 129, 0.1); /* Dark mode version */
+    border-color: rgba(16, 185, 129, 0.5);
+    color: #a7f3d0; /* Lighter green for dark mode */
+}
+
+.error-message {
+    color: #ef4444; /* Tailwind red-500 equivalent */
+    background-color: #fef2f2; /* Tailwind red-50 equivalent */
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    border: 1px solid #fca5a5; /* Tailwind red-300 equivalent */
+}
+
+.dark .error-message {
+    background-color: rgba(239, 68, 68, 0.1); /* Dark mode version */
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #fecaca; /* Lighter red for dark mode */
+}
